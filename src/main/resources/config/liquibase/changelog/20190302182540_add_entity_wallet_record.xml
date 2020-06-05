@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <property name="now" value="current_timestamp"
+              dbms="postgresql"/>
+
+    <property name="floatType" value="float4"
+              dbms="postgresql"/>
+
+    <!-- Added the entity wallet. -->
+    <changeSet id="20190302182540" author="acrosafe">
+        <createTable tableName="wallet_record">
+            <column name="id" type="varchar(255)">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="enabled" type="boolean">
+                <constraints nullable="false"/>
+            </column>
+            <column name="compromised" type="boolean">
+                <constraints nullable="false"/>
+            </column>
+            <column name="seed" type="varchar(4096)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="watching_key" type="varchar(4096)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="forward_address" type="varchar(255)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="spec" type="varchar(512)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="salt" type="varchar(512)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="label" type="varchar(2048)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="timestamp" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="timestamp"
+                    defaultValueDate="${now}">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

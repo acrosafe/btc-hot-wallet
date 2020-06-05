@@ -1,0 +1,18 @@
+# ===================================================================
+# Application specific properties
+# ===================================================================
+server:
+  ssl:
+    key-store: file:${TLS_KEYSTORE_FILE}
+    key-store-password: "${TLS_KEYSTORE_PASSWORD}"
+    key-store-type: JKS
+    client-auth: need
+application:
+  passphrase: ${PASSPHRASE}
+  service-id: ${SERVICEID}
+  dns-seeds: seed.bitcoin.sipa.be, dnsseed.bluematt.me, dnsseed.bitcoin.dashjr.org, seed.bitcoinstats.com, seed.bitcoin.jonasschnelli.ch
+  network: mainnet
+  fast-catchup-time: 2019-12-13 11:00:00
+  deposit-confirmation-number: 2
+  entropy-bits: 256
+  security-strength: 256
