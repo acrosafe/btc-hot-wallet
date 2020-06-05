@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <property name="now" value="current_timestamp"
+              dbms="postgresql"/>
+
+    <property name="floatType" value="float4"
+              dbms="postgresql"/>
+
+    <changeSet id="20181009132540" author="acrosafe">
+        <createTable tableName="address_record">
+            <column name="receive_address" type="varchar(255)">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="label" type="varchar(2048)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="wallet_id" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="timestamp"
+                    defaultValueDate="${now}">
+                <constraints nullable="false"/>
+            </column>
+
+        </createTable>
+
+        <addForeignKeyConstraint
+                baseColumnNames="wallet_id" baseTableName="address_record"
+                constraintName="fk_address_record_wallet_id"
+                referencedColumnNames="id" referencedTableName="wallet_record"/>
+
+    </changeSet>
+</databaseChangeLog>

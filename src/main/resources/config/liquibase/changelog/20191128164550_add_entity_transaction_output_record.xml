@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <property name="now" value="current_timestamp"
+              dbms="postgresql"/>
+
+    <property name="floatType" value="float4"
+              dbms="postgresql"/>
+
+    <changeSet id="20191128164550" author="acrosafe">
+        <createTable tableName="transaction_output_record">
+            <column name="id" type="varchar(255)">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="transaction_id" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="amount" type="bigint" defaultValue="0">
+                <constraints nullable="false"/>
+            </column>
+            <column name="destination" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="output_index" type="integer">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="timestamp"
+                    defaultValueDate="${now}">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addForeignKeyConstraint
+                baseColumnNames="transaction_id" baseTableName="transaction_output_record"
+                constraintName="fk_transaction_output_record_transaction_id"
+                referencedColumnNames="id" referencedTableName="transaction_record"/>
+    </changeSet>
+</databaseChangeLog>

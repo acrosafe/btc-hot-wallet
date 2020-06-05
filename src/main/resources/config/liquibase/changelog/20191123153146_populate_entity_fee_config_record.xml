@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet id="20191123153146" author="acrosafe">
+        <insert tableName="fee_config_record">
+            <column name="number_of_block" value="1"/>
+            <column name="fee_per_kb" value="67177"/>
+        </insert>
+        <insert tableName="fee_config_record">
+            <column name="number_of_block" value="2"/>
+            <column name="fee_per_kb" value="16448"/>
+        </insert>
+        <insert tableName="fee_config_record">
+            <column name="number_of_block" value="3"/>
+            <column name="fee_per_kb" value="2547"/>
+        </insert>
+        <insert tableName="fee_config_record">
+            <column name="number_of_block" value="4"/>
+            <column name="fee_per_kb" value="2469"/>
+        </insert>
+        <insert tableName="fee_config_record">
+            <column name="number_of_block" value="6"/>
+            <column name="fee_per_kb" value="2007"/>
+        </insert>
+        <insert tableName="fee_config_record">
+            <column name="number_of_block" value="7"/>
+            <column name="fee_per_kb" value="1752"/>
+        </insert>
+        <insert tableName="fee_config_record">
+            <column name="number_of_block" value="8"/>
+            <column name="fee_per_kb" value="1440"/>
+        </insert>
+        <insert tableName="fee_config_record">
+            <column name="number_of_block" value="9"/>
+            <column name="fee_per_kb" value="1186"/>
+        </insert>
+        <insert tableName="fee_config_record">
+            <column name="number_of_block" value="11"/>
+            <column name="fee_per_kb" value="1000"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

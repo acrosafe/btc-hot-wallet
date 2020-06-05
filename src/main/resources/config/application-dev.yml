@@ -1,0 +1,50 @@
+logging:
+  level:
+    ROOT: ERROR
+    io.acrosafe.wallet.hot.btc: DEBUG
+
+spring:
+  profiles:
+    active: dev
+    include:
+  devtools:
+    restart:
+      enabled: true
+    livereload:
+      enabled: false # we use Webpack dev server + BrowserSync for livereload
+  jackson:
+    serialization.indent_output: true
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:postgresql://localhost:5432/btcHotWallet
+    username: wallet
+    password: password
+    hikari:
+      auto-commit: false
+      maximum-pool-size: 3
+
+server:
+  port: 7000
+  ssl:
+    key-store: classpath:config/tls/keystore.p12
+    key-store-password: password
+    key-store-type: PKCS12
+    key-alias: selfsigned
+    ciphers: TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384, TLS_DHE_RSA_WITH_AES_128_GCM_SHA256, TLS_DHE_RSA_WITH_AES_256_GCM_SHA384, TLS_DHE_RSA_WITH_AES_128_CBC_SHA, TLS_DHE_RSA_WITH_AES_256_CBC_SHA, TLS_DHE_RSA_WITH_AES_128_CBC_SHA256, TLS_DHE_RSA_WITH_AES_256_CBC_SHA256
+    enabled-protocols: TLSv1.2
+  http2:
+    enabled: true
+
+# ===================================================================
+# Application specific properties
+# ===================================================================
+
+application:
+  passphrase: ^quG%8Yw@MLRmMQp
+  service-id: 1rolvs9v7c00h5yf
+  dns-seeds: testnet-seed.bitcoin.jonasschnelli.ch, seed.tbtc.petertodd.org, seed.testnet.bitcoin.sprovoost.nl, testnet-seed.bluematt.me
+  network: testnet
+  fast-catchup-time: 2019-12-13 11:00:00
+  deposit-confirmation-number: 1
+  entropy-bits: 256
+  security-strength: 256
