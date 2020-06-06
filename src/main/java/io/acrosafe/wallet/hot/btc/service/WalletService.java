@@ -651,6 +651,10 @@ public class WalletService
                 }
             }
         }
+        else
+        {
+            logger.warn("no wallet found. syncing the blockchain data. this might take long time.");
+        }
     }
 
     private void updateTransaction(TransactionConfidence confidence)
