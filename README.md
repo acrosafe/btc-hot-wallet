@@ -115,7 +115,7 @@ Note: If you have problem about btc-core.jar in the pom, please add it to your m
   ```
 
   
-- **Get wallet:  GET**  https://hostname:7000/api/v1/btc/wallet/{walletId}
+ **Get wallet:  GET**  https://hostname:7000/api/v1/btc/wallet/{walletId}
 
     output example:
     ```javascript
