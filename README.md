@@ -129,40 +129,40 @@ Note: If you have problem about btc-core.jar in the pom, please add it to your m
             "available": "0.00754024"
           }
         }
-        ```
+    ```
 
-    - **List wallets:  GET**  https://hostname:7000/api/v1/btc/wallet/all?pageId=0&size=10
+  - **List wallets:  GET**  https://hostname:7000/api/v1/btc/wallet/all?pageId=0&size=10
 
         output example:
 
         ```javascript
         {
-      "wallets": [
-        {
-          "enabled": true,
-          "createdDate": "2020-06-06T18:25:38.024Z",
-          "label": "test wallet 001",
-          "balance": {
-            "estimated": "0",
-            "available": "0"
+        "wallets": [
+          {
+            "enabled": true,
+            "createdDate": "2020-06-06T18:25:38.024Z",
+            "label": "test wallet 001",
+            "balance": {
+              "estimated": "0",
+              "available": "0"
+            }
+          },
+          {
+            "enabled": true,
+            "createdDate": "2020-06-01T21:03:38.290Z",
+            "label": "test wallet 001",
+            "balance": {
+              "estimated": "0.00754024",
+              "available": "0.00754024"
+            }
+          },
+          {
+            "enabled": false,
+            "createdDate": "2020-06-01T21:02:02.963Z",
+            "label": "DEFAULT"
           }
-        },
-        {
-          "enabled": true,
-          "createdDate": "2020-06-01T21:03:38.290Z",
-          "label": "test wallet 001",
-          "balance": {
-            "estimated": "0.00754024",
-            "available": "0.00754024"
-          }
-        },
-        {
-          "enabled": false,
-          "createdDate": "2020-06-01T21:02:02.963Z",
-          "label": "DEFAULT"
+        ]
         }
-      ]
-    }
     ```
 
 - **Generate receiving address:  POST**   https://hostname:7000/api/v1/btc/wallet/{walletId}/address/new
