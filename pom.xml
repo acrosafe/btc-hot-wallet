@@ -5,18 +5,19 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.2.7.RELEASE</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <version>2.2.8.RELEASE</version>
+        <relativePath/>
     </parent>
     <groupId>io.acrosafe.wallet</groupId>
     <artifactId>btc-hot-wallet</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0-SNAPSHOT</version>
     <name>btc-hot-wallet</name>
     <description>BTC Hot Wallet</description>
 
     <properties>
         <java.version>1.8</java.version>
         <spring-cloud.version>Hoxton.RELEASE</spring-cloud.version>
+        <btc-core.version>1.0.0-RELEASE</btc-core.version>
     </properties>
 
     <dependencyManagement>
@@ -43,6 +44,16 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-tomcat</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-undertow</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -98,7 +109,7 @@
         <dependency>
             <groupId>io.acrosafe.wallet.core</groupId>
             <artifactId>btc-core</artifactId>
-            <version>1.0.0-release</version>
+            <version>${btc-core.version}</version>
         </dependency>
     </dependencies>
 

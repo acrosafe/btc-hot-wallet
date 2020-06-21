@@ -45,7 +45,7 @@ server:
   port: 7000
   compression:
     enabled: true
-    mime-types: text/html,tex
+    mime-types: text/html
   servlet:
     session:
       cookie:
