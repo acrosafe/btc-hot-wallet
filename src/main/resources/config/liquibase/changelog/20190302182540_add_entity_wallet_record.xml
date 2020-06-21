@@ -20,17 +20,8 @@
             <column name="enabled" type="boolean">
                 <constraints nullable="false"/>
             </column>
-            <column name="compromised" type="boolean">
-                <constraints nullable="false"/>
-            </column>
             <column name="seed" type="varchar(4096)">
                 <constraints nullable="false"/>
-            </column>
-            <column name="watching_key" type="varchar(4096)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="forward_address" type="varchar(255)">
-                <constraints nullable="true"/>
             </column>
             <column name="spec" type="varchar(512)">
                 <constraints nullable="false"/>

@@ -13,7 +13,7 @@
 
     <changeSet id="20191123153111" author="acrosafe">
         <createTable tableName="fee_config_record">
-            <column name="number_of_block" type="bigint">
+            <column name="number_block" type="bigint">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="fee_per_kb" type="bigint">
