@@ -1,5 +1,5 @@
 # btc-hot-wallet
-Spring Boot based hot BTC wallet (non-multisiged). Support both on-premise and on-cloud. It can be integrated into existing system to support BTC payment/transaction.
+Spring Boot based hot wallet and payment implementation for BTC. Support both on-premise and on-cloud. If you want to support the project, please donate to the following BTC address: 3JYBBEXybHQZacUkwjiFBZpooDBwn9c1PD
 
 ## Setup Development Environment
 1. Install PostgreSQL and Java 8.
@@ -9,8 +9,6 @@ Spring Boot based hot BTC wallet (non-multisiged). Support both on-premise and o
 5. Copy the checkpoint file in etc folder to <user_home> folder if you want to accelarate the blockchain download speed.
 6. When you see "All blocks have been downloaded. BTC wallet service is available." in your log, you system has started. It takes less than one minute if you use checkpoint. hours if not.
 7. If you want to run it from eclipse or IntelliJ, sync the latest code, import the project and add btc-core-1.0.0.jar to local maven repo.
-
-Note: If you have problem about btc-core.jar in the pom, please add it to your maven repo manually. You can find jar file in etc folder.
 
 ## REST API 
 - **List all transactions:  GET** https://localhost:7000/api/v1/btc/wallet/bef1a9a4e39e4cb8b36be1ff9681529d/transaction/all?pageId=0&size=100
@@ -169,10 +167,10 @@ Note: If you have problem about btc-core.jar in the pom, please add it to your m
 
     example input:
     ```javascript
-  {
-  	"symbol":"BTC",
-    "label": "testing"
-  }
+      {
+        "symbol":"BTC",
+        "label": "testing"
+      }
   ```
   
   example output:
