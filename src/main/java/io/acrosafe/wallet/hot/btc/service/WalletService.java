@@ -184,7 +184,6 @@ import com.google.common.util.concurrent.Futures;
 import com.google.common.util.concurrent.ListenableFuture;
 import com.google.common.util.concurrent.MoreExecutors;
 import io.acrosafe.wallet.core.btc.BTCWallet;
-import io.acrosafe.wallet.core.btc.MultisigWallet;
 import io.acrosafe.wallet.core.btc.WalletBalance;
 import io.acrosafe.wallet.core.btc.exception.InvalidTransactionException;
 import io.acrosafe.wallet.hot.btc.config.ApplicationProperties;
@@ -222,7 +221,6 @@ import org.bitcoinj.crypto.ChildNumber;
 import org.bitcoinj.crypto.MnemonicCode;
 import org.bitcoinj.script.Script;
 import org.bitcoinj.script.ScriptBuilder;
-import org.bitcoinj.signers.TransactionSigner;
 import org.bitcoinj.store.BlockStoreException;
 import org.bitcoinj.wallet.DeterministicKeyChain;
 import org.bitcoinj.wallet.DeterministicSeed;
@@ -746,7 +744,7 @@ public class WalletService
 
     private void restoreWallets() throws CryptoException
     {
-        List<WalletRecord> walletRecords = this.walletRecordRepository.findAllByEnabledTrue();
+        List<WalletRecord> walletRecords = this.walletRecordRepository.findAll();
         if (walletRecords != null && walletRecords.size() != 0)
         {
             for (WalletRecord walletRecord : walletRecords)
